@@ -34,7 +34,6 @@ export class E2eeSDK {
        */
       _setDefaultsOptions(opt) {
         this.url = opt.url;
-        this.apiPrefix = opt.apiPrefix || "";
         this.isHttps = /^https/i.test(this.url);
         this.accessToken = opt.accessToken;
         this.encoding = opt.encoding || "utf8";
@@ -118,11 +117,9 @@ export class E2eeSDK {
    * @return {String}
    */
   _getUrl(endpoint, params) {
-    const api = this.apiPrefix + "/";
-
     let url = this.url.slice(-1) === "/" ? this.url : this.url + "/";
 
-    url = url + api + this.version + "/" + endpoint;
+    url = url + "/" + endpoint;
 
     // Include port.
     if (this.port !== "") {

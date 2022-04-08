@@ -119,7 +119,7 @@ export class E2eeSDK {
   _getUrl(endpoint, params) {
     let url = this.url.slice(-1) === "/" ? this.url : this.url + "/";
 
-    url = url + "/" + endpoint;
+    url = url + endpoint;
 
     // Include port.
     if (this.port !== "") {

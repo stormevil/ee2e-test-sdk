@@ -22,7 +22,7 @@ export class E2eeSDK {
       }
 
        getE2EEKey(phone) {
-       this.get('/e2ee/key',{phone}).then(result => {
+       this.get('e2ee/key',{phone}).then(result => {
         console.log(result);
        }).catch(err => console.log(err));
       }

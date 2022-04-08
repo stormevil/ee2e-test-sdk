@@ -1,4 +1,6 @@
 
+import axios from 'axios';
+
 export class E2eeSDK {
     constructor(opt) {
         if (!(this instanceof E2eeSDK)) {

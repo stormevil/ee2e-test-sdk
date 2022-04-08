@@ -24,6 +24,12 @@ export class E2eeSDK {
        getE2EEKey(phone,cb) {
         return this.post('e2ee/key',{phone})
       }
+
+      sendE2EEZNSMessage(phone, templateId,templateData) {
+        return this.post('message/e2ee',{
+          phone,template_id:templateId,template_data:templateData
+        })
+      }
     
       /**
        * Set default options

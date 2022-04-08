@@ -11,15 +11,12 @@ export class E2eeSDK {
           throw new OptionsException("url is required");
         }
     
-        if (!opt.consumerKey) {
-          throw new OptionsException("consumerKey is required");
+    
+        if (!opt.accessToken) {
+          throw new OptionsException("accessToken is required");
         }
     
-        if (!opt.consumerSecret) {
-          throw new OptionsException("consumerSecret is required");
-        }
-    
-        this.classVersion = "1.0.1";
+        this.classVersion = "1.0.0";
         this._setDefaultsOptions(opt);
       }
 
@@ -36,8 +33,7 @@ export class E2eeSDK {
         this.url = opt.url;
         this.apiPrefix = opt.apiPrefix || "";
         this.isHttps = /^https/i.test(this.url);
-        this.consumerKey = opt.consumerKey;
-        this.consumerSecret = opt.consumerSecret;
+        this.accessToken = opt.accessToken;
         this.encoding = opt.encoding || "utf8";
         this.queryStringAuth = opt.queryStringAuth || false;
         this.port = opt.port || "";
@@ -155,16 +151,7 @@ export class E2eeSDK {
         const headers = {
           Accept: "application/json"
         };
-        // only set "User-Agent" in node environment
-        // the checking method is identical to upstream axios
-        if (
-          typeof process !== "undefined" &&
-          Object.prototype.toString.call(process) === "[object process]"
-        ) {
-          headers["User-Agent"] =
-            "WooCommerce REST API - JS Client/" + this.classVersion;
-        }
-    
+
         let options = {
           url: url,
           method: method,
@@ -177,13 +164,11 @@ export class E2eeSDK {
         if (this.isHttps) {
           if (this.queryStringAuth) {
             options.params = {
-              consumer_key: this.consumerKey,
-              consumer_secret: this.consumerSecret
+              access_token: this.accessToken,
             };
           } else {
             options.auth = {
-              username: this.consumerKey,
-              password: this.consumerSecret
+              access_token: this.accessToken,
             };
           }
     

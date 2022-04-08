@@ -147,7 +147,8 @@ export class E2eeSDK {
         const url = this._getUrl(endpoint, params);
     
         const headers = {
-          Accept: "application/json"
+          Accept: "application/json",
+          access_token:this.accessToken
         };
 
         let options = {
@@ -158,25 +159,7 @@ export class E2eeSDK {
           responseType: "json",
           headers
         };
-    
-        if (this.isHttps) {
-          if (this.queryStringAuth) {
-            options.params = {
-              access_token: this.accessToken,
-            };
-          } else {
-            options.auth = {
-              access_token: this.accessToken,
-            };
-          }
-    
-          options.params = { ...options.params, ...params };
-        } else {
-          options.params = this._getOAuth().authorize({
-            url: url,
-            method: method
-          });
-        }
+  
     
         if (data) {
           options.headers["Content-Type"] = "application/json;charset=utf-8";

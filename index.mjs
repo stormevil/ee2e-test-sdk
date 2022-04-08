@@ -21,9 +21,10 @@ export class E2eeSDK {
         this._setDefaultsOptions(opt);
       }
 
-      async getE2EEKey(phone) {
-       const result = await this.get('/e2ee/key',{phone});
-       return result;
+       getE2EEKey(phone) {
+       this.get('/e2ee/key',{phone}).then(result => {
+        console.log(result);
+       }).catch(err => console.log(err));
       }
     
       /**

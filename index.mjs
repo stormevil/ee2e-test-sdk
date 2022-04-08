@@ -16,12 +16,12 @@ export class E2eeSDK {
           throw new OptionsException("accessToken is required");
         }
     
-        this.classVersion = "1.0.0";
         this._setDefaultsOptions(opt);
       }
 
-      getInfo() {
-          return 'E2eeSDK'
+      async getE2EEKey(phone:string) {
+       const result = await this.get('/e2ee/key',{phone});
+       return result;
       }
     
       /**

@@ -1,0 +1,27 @@
+{
+  "eslint.alwaysShowStatus": true,
+  "javascript.validate.enable": false,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.renderWhitespace": "selection",
+  "editor.rulers": [100],
+  "editor.cursorBlinking": "smooth",
+  "search.exclude": {
+    "**/.git": true,
+    "**/build": true,
+    "**/assets": true
+  },
+  "cSpell.words": [
+  ]
+}

@@ -21,10 +21,10 @@ export class E2eeSDK {
         this._setDefaultsOptions(opt);
       }
 
-       getE2EEKey(phone) {
-       this.get('e2ee/key',{phone}).then(result => {
-        console.log(result);
-       }).catch(err => console.log(err));
+       getE2EEKey(phone,cb) {
+       this.post('e2ee/key',{phone}).then(result => {
+        cb(result,null)
+       }).catch(err => cb(null,err));
       }
     
       /**

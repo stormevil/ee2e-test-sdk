@@ -22,6 +22,10 @@ export class E2eeSDK {
         this.classVersion = "1.0.1";
         this._setDefaultsOptions(opt);
       }
+
+      getInfo() {
+          return 'E2eeSDK'
+      }
     
       /**
        * Set default options

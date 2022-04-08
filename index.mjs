@@ -1,8 +1,8 @@
 
 export class E2eeSDK {
     constructor(opt) {
-        if (!(this instanceof WooCommerceRestApi)) {
-          return new WooCommerceRestApi(opt);
+        if (!(this instanceof E2eeSDK)) {
+          return new E2eeSDK(opt);
         }
     
         opt = opt || {};

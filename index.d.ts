@@ -4,7 +4,7 @@
  * @param {Object} opt
  */
 export default class E2eeSDK {
-    getInfo() :void
+    getInfo() :string
 }
 
 /**
